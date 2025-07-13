@@ -199,7 +199,7 @@ if not client.connect():
     raise ConnectionError("Could not connect to Modbus TCP")
 
 # Read registers
-result = client.read_holding_registers(address, count, slave_id)
+result = client.read_holding_registers(address, count = count, slave = slave_id)
 if result.isError():
     # Handle error
 else:
@@ -214,7 +214,7 @@ else:
 
 # Write to registers
 values = [int_value]
-result = client.write_registers(address, values, slave_id)
+result = client.write_registers(address, values, slave = slave_id)
 if result.isError():
     # Handle error
 ```

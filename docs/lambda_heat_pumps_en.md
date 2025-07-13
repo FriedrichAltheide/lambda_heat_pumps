@@ -141,8 +141,8 @@ async def _async_update_data(self):
             result = await self.hass.async_add_executor_job(
                 self.client.read_holding_registers,
                 sensor_config["address"],
-                count,
-                self.slave_id,
+                count = count,
+                slave = self.slave_id,
             )
             
             # Process and store data

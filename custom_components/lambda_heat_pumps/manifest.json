@@ -1,11 +1,11 @@
 {
   "domain": "lambda_heat_pumps",
-  "name": "Lambda Heat Pumps",
+  "name": "Lambda Heat Pumps (Debug)",
   "codeowners": ["@GuidoJeuken-6512"],
   "config_flow": true,
   "documentation": "https://github.com/GuidoJeuken-6512/lambda_heat_pumps",
   "iot_class": "local_polling",
   "issue_tracker": "https://github.com/GuidoJeuken-6512/lambda_heat_pumps/issues",
-  "requirements": ["pymodbus==3.6.1"],
+  "requirements": ["pymodbus==3.9.2"],
   "version": "1.0.9"
 }

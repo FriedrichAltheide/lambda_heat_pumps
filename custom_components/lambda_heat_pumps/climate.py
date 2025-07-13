@@ -14,6 +14,7 @@ from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import DOMAIN, CLIMATE_TEMPLATES
 from .utils import generate_base_addresses, build_device_info
+from functools import partial
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -89,10 +90,10 @@ class LambdaClimateEntity(CoordinatorEntity, ClimateEntity):
             temperature
         )
         result = await self.hass.async_add_executor_job(
-            self.coordinator.client.write_registers,
+            partial(self.coordinator.client.write_registers,
             reg_addr,
             [raw_value],
-            self._entry.data.get("slave_id", 1)
+            slave = self._entry.data.get("slave_id", 1))
         )
         if hasattr(result, "isError") and result.isError():
             _LOGGER.error("Failed to write target temperature: %s", result)

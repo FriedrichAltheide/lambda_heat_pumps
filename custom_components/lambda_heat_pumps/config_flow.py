@@ -3,6 +3,7 @@
 from __future__ import annotations
 import logging
 from typing import Any
+from functools import partial
 
 import voluptuous as vol
 
@@ -62,10 +63,11 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> None:
 
         # Test read of a register to verify connection
         result = await hass.async_add_executor_job(
-            client.read_holding_registers,
+            partial(client.read_holding_registers,
             0,  # Start address
-            1,  # Number of registers to read
-            data[CONF_SLAVE_ID],
+            count = 1,  # Number of registers to read
+            slave = data.get(CONF_SLAVE_ID, 1),
+            )
         )
 
         if result.isError():

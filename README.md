@@ -1,4 +1,4 @@
-# Lambda Heat Pumps Integration for Home Assistant
+# Lambda Heat Pumps Integration for Home Assistant (Debug)
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/custom-components/hacs)
 [![maintainer](https://img.shields.io/badge/maintainer-%40GuidoJeuken--6512-blue.svg)](https://github.com/GuidoJeuken-6512)
