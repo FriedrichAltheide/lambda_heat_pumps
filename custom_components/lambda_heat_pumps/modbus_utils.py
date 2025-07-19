@@ -44,7 +44,7 @@ def modbus_call(client, method, *args, **kwargs):
 def read_holding_registers(client, address, count, slave_id=1):
     """Read holding registers with compatibility."""
     return modbus_call(
-        client, "read_holding_registers", address, count, slave_id=slave_id
+        client, "read_holding_registers", address, count=count, slave_id=slave_id
     )
 
 
@@ -65,5 +65,5 @@ def write_registers(client, address, values, slave_id=1):
 def read_input_registers(client, address, count, slave_id=1):
     """Read input registers with compatibility."""
     return modbus_call(
-        client, "read_input_registers", address, count, slave_id=slave_id
+        client, "read_input_registers", address, count=count, slave_id=slave_id
     )
